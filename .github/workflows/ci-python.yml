@@ -39,7 +39,7 @@ jobs:
     - name: Ejecutar con cobertura
       run: |
         cd mi-app-python
-        pytest --cov=app --cov-report=term --cov-report=html
+        PYTHONPATH=$(pwd) pytest --cov=app --cov-report=term --cov-report=html
 
     - name: Guardar reporte
       uses: actions/upload-artifact@v4
