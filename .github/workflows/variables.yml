@@ -17,3 +17,4 @@ jobs:
         echo "Proyecto: $PROYECTO"
         echo "Ambiente: $AMBIENTE"
         echo "Responsable: $RESPONSABLE"
+        
