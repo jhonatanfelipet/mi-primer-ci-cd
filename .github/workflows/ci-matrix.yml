@@ -20,6 +20,12 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - run: pip install -r requirements.txt
-    - run: pytest tests/ -v
+    - name: Instalar dependencias
+      run: |
+        cd mi-app-python
+        pip install -r requirements.txt
 
+    - name: Ejecutar tests
+      run: |
+        cd mi-app-python
+        PYTHONPATH=$(pwd) pytest tests/ -v
