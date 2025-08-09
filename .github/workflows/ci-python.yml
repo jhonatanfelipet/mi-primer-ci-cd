@@ -34,7 +34,7 @@ jobs:
     - name: Ejecutar tests
       run: |
         cd mi-app-python
-        pytest tests/ -v
+        PYTHONPATH=$(pwd) pytest tests/ -v
 
     - name: Ejecutar con cobertura
       run: |
