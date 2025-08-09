@@ -12,4 +12,3 @@ jobs:
     - name: Detectar rama
       run: |
         echo "Rama actual: ${{ github.ref_name }}"
-        
