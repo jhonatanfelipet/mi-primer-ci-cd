@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    build: ./app
+    build: .
     ports:
       - "3000:3000"
     environment:
@@ -15,8 +15,7 @@ services:
     depends_on:
       - postgres
       - redis
-    volumes:
-      - ./app:/app
+
 
   postgres:
     image: postgres:15-alpine
