@@ -1,0 +1,26 @@
+name: Deploy con Docker Compose
+
+on:
+  push:
+    branches: [main, develop]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, Linux, ARM64, jftp-runner]
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Ir a carpeta de la app
+        run: cd mi-app && docker compose down -v || true
+
+      - name: Construir servicios
+        run: cd mi-app && docker compose -f docker-compose.yml build
+
+      - name: Levantar servicios
+        run: cd mi-app && docker compose -f docker-compose.yml up -d
+
+      - name: Verificar app
+        run: curl -f http://localhost:3000/health
