@@ -7,7 +7,7 @@ on:
 
 jobs:
   check-app:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted]
 
     steps:
       - name: Chequear estado de la app
